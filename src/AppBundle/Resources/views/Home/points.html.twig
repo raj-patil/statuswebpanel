@@ -1,0 +1,234 @@
+{% extends "AppBundle::layout.html.twig" %}
+{% block body%}
+    <div class="container-fluid">
+        <div class="col-md-3">
+            <br>
+            <div >
+                <div class="tab-moivie">
+                    <a href="{{path("app_home_settings")}}" class="btn btn-tab-movie col-md-12"><i class="material-icons">settings</i> Settings</a>
+                    <a href="{{path("app_home_points")}}" class="btn btn-tab-movie-active col-md-12"><i class="material-icons">attach_money</i> Earning</a>
+                    <a href="{{path("app_home_ads")}}" class="btn btn-tab-movie col-md-12"><i class="material-icons">monetization_on</i> Ads Settings</a>
+                    <a href="{{path("fos_user_change_password")}}" class="btn btn-tab-movie col-md-12"><i class="material-icons">lock</i> Change password</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                {{form_start(form)}}
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                            <i class="material-icons">attach_money</i>
+                        </div>
+                        <br>
+                        <h4 class="card-title">Earning</h4>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Global</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Earning System</label>
+                                {{form_widget(form.earning,{"attr":{"class":"form-control"}})}}
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Currency</label>
+                                {{form_widget(form.currency,{"attr":{"class":"form-control"}})}}
+                            </div>
+                            <span class="validate-input">{{form_errors(form.currency)}}</span>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Min Points to withdraw:</label>
+                                {{form_widget(form.minpoints,{"attr":{"class":"form-control"}})}}
+                            </div>
+                            <span class="validate-input">{{form_errors(form.minpoints)}}</span>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">1 {{form.vars.value.currency}} = ? Points</label>
+                                {{form_widget(form.oneusdtopoints,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.oneusdtopoints)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Video Points</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Share Video Points:</label>
+                                {{form_widget(form.sharevideo,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.sharevideo)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">View Video Points:</label>
+                                {{form_widget(form.viewvideo,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.viewvideo)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Add Video Points:</label>
+                                {{form_widget(form.addvideo,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.addvideo)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Author Points for each view:</label>
+                                {{form_widget(form.authorvideo,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.authorvideo)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Youtube Points</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Share Youtube Video Points:</label>
+                                {{form_widget(form.shareyoutube,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.shareyoutube)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">View Youtube video Points:</label>
+                                {{form_widget(form.viewyoutube,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.viewyoutube)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Add Youtube video Points:</label>
+                                {{form_widget(form.addyoutube,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.addyoutube)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Author Points for each view:</label>
+                                {{form_widget(form.authoryoutube,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.authoryoutube)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Gif Points</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Share Gif Points:</label>
+                                {{form_widget(form.sharegif,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.sharegif)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">View Gif Points:</label>
+                                {{form_widget(form.viewgif,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.viewgif)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Add Gif Points:</label>
+                                {{form_widget(form.addgif,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.addgif)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Author Points for each view:</label>
+                                {{form_widget(form.authorgif,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.authorgif)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Image Points</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Share Image Points:</label>
+                                {{form_widget(form.shareimage,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.shareimage)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">View Image Points:</label>
+                                {{form_widget(form.viewimage,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.viewimage)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Add Image Points:</label>
+                                {{form_widget(form.addimage,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.addimage)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Author Points for each view:</label>
+                                {{form_widget(form.authorimage,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.authorimage)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                        <div class="panel-body">
+                            <label class="panel-title">Quote Points</label>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Share Quote Points:</label>
+                                {{form_widget(form.sharequote,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.sharequote)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">View Quote Points:</label>
+                                {{form_widget(form.viewquote,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.viewquote)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Add Quote Points:</label>
+                                {{form_widget(form.addquote,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.addquote)}}</span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                <label class="control-label">Author Points for each view:</label>
+                                {{form_widget(form.authorquote,{"attr":{"class":"form-control",'rows':12}})}}
+                                <span class="validate-input">{{form_errors(form.authorquote)}}</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card" style="margin-top: 10px;margin-bottom: 10px;">
+                         <div class="card-content">
+                            <div class="panel-body">
+                                <label class="panel-title">Users Points</label>
+                                <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                    <label class="control-label">Invite User to Registred:</label>
+                                    {{form_widget(form.adduser,{"attr":{"class":"form-control",'rows':12}})}}
+                                    <span class="validate-input">{{form_errors(form.adduser)}}</span>
+                                </div>
+                                <div class="form-group label-floating is-empty" style="padding: 0px;margin: 0px;">
+                                    <label class="control-label">User Sign Up in App:</label>
+                                    {{form_widget(form.registeruser,{"attr":{"class":"form-control",'rows':12}})}}
+                                    <span class="validate-input">{{form_errors(form.registeruser)}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                    <br>
+                    <div  style="    margin-top: -15px;" class="pull-right">
+                        <span ><a href="{{path("app_home_index")}}" class="btn btn-fill btn-yellow"><i class="material-icons">arrow_back</i> Cancel</a>{{form_widget(form.save,{attr:{"class":"btn btn-fill btn-rose"}})}}</span>
+                    </div>
+                </div>
+                {{form_end(form)}}
+            </div>
+        </div>
+    </div>
+{% endblock%}

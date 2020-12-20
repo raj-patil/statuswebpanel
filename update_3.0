@@ -1,0 +1,93 @@
+src/AppBundle/Controller/ReportController.php
+src/AppBundle/Controller/HomeController.php
+src/AppBundle/Controller/StatusController.php
+src/AppBundle/Controller/VersionController.php
+
+
+src/AppBundle/Entity/Report.php
+src/UserBundle/Entity/Settings.php
+src/UserBundle/Entity/Status.php
+
+src/AppBundle/Repository/ReportRepository.php
+
+
+src/AppBundle/Form/AdsType.php
+src/AppBundle/Form/SettingsType.php
+src/AppBundle/Form/PointType.php
+src/AppBundle/Form/YoutubeType.php
+
+src/AppBundle/Resources/views/Home/points.html.twig
+src/AppBundle/Resources/views/Home/settings.html.twig
+src/AppBundle/Resources/views/Home/ads.html.twig
+src/AppBundle/Resources/views/Home/index.html.twig
+src/AppBundle/Resources/views/Home/privacypolicy.html.twig
+src/AppBundle/Resources/views/Home/api_all.html.php
+
+src/AppBundle/Resources/views/Report/index.html.twig
+src/AppBundle/Resources/views/Report/delete.html.twig
+
+
+src/AppBundle/Resources/views/Status/video_add_youtube.html.twig
+src/AppBundle/Resources/views/Status/video_edit_youtube.html.twig
+src/AppBundle/Resources/views/Status/index.html.twig
+src/AppBundle/Resources/views/Status/reviews.html.twig
+src/AppBundle/Resources/views/Status/review.html.twig
+src/AppBundle/Resources/views/Status/view.html.twig
+src/AppBundle/Resources/views/Status/api_all.html.php
+
+src/AppBundle/Resources/views/Payment/api_all.html.php
+
+src/AppBundle/Resources/views/layout.html.twig
+src/AppBundle/Resources/config/routing.yml
+
+
+src/MediaBundle/Entity/Media.php
+
+src/UserBundle/Controller/UserController.php
+src/UserBundle/Entity/User.php
+src/UserBundle/Repository/UserRepository.php
+src/UserBundle/Resources/views/User/inde.html.twig
+
+
+src/UserBundle/Resources/views/ChangePassword/changePassword_content.html.twig
+
+
+public_html/css/demo.css
+public_html/js/app.js
+public_html/img/youtube.png
+public_html/img/mobile.png
+
+app/config/security.yml
+_______
+database
+____________________________
+ALTER TABLE settings_table 
+ADD publisherid VARCHAR(255) DEFAULT NULL,
+ADD appid VARCHAR(255) DEFAULT NULL,
+ADD rewardedadmobid VARCHAR(255) DEFAULT NULL,
+ADD banneradmobid VARCHAR(255) DEFAULT NULL,
+ADD bannerfacebookid VARCHAR(255) DEFAULT NULL,
+ADD nativebannerfacebookid VARCHAR(255) DEFAULT NULL,
+ADD bannertype VARCHAR(255) DEFAULT NULL,
+ADD nativeadmobid VARCHAR(255) DEFAULT NULL,
+ADD nativefacebookid VARCHAR(255) DEFAULT NULL,
+ADD nativeitem INT DEFAULT NULL,
+ADD nativetype VARCHAR(255) DEFAULT NULL,
+ADD interstitialadmobid VARCHAR(255) DEFAULT NULL,
+ADD interstitialfacebookid VARCHAR(255) DEFAULT NULL,
+ADD interstitialtype VARCHAR(255) DEFAULT NULL,
+ADD interstitialclick INT DEFAULT NULL,
+ADD shareyoutube INT NOT NULL, 
+ADD viewyoutube INT NOT NULL, 
+ADD addyoutube INT NOT NULL,
+ADD authoryoutube INT NOT NULL,
+ADD authorvideo INT NOT NULL,
+ADD authorimage INT NOT NULL,
+ADD authorgif INT NOT NULL,
+ADD authorquote INT NOT NULL,
+ADD registeruser INT NOT NULL,
+ADD privacypolicy LONGTEXT DEFAULT NULL,
+ADD earning LONGTEXT NOT NULL;
+
+CREATE TABLE report_table (id INT AUTO_INCREMENT NOT NULL, status_id INT NOT NULL, message LONGTEXT NOT NULL, created DATETIME NOT NULL, INDEX IDX_DC35883F6BF700BD (status_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+ALTER TABLE report_table ADD CONSTRAINT FK_DC35883F6BF700BD FOREIGN KEY (status_id) REFERENCES status_table (id);
